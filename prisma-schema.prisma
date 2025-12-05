@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:postgres@postgres/app" // hardcoded because it's an internal docker connection
+}
+
+model GeneratedWebsite {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Drawing data
+  drawingImageUrl   String?  // URL to the drawing image in Minio
+  drawingData       Json?    // Raw drawing data (lines, shapes, etc.)
+  
+  // AI Analysis
+  analysisResult    String?  @db.Text // What the AI understood from the drawing
+  
+  // User preferences
+  projectPurpose    String?  @db.Text // User's description of the project purpose and requirements
+  frontendFramework String   // e.g., "react", "vue", "vanilla"
+  backendFramework  String?  // e.g., "express", "fastify", "none"
+  styling           String   // e.g., "tailwind", "bootstrap", "css"
+  features          String[] // e.g., ["auth", "database", "api"]
+  
+  // Generated code
+  generatedCode     Json     // Contains all files: { "index.html": "...", "app.js": "...", etc. }
+  codeDescription   String?  @db.Text // Description of what was generated
+  
+  // Deployment
+  deploymentStatus  String   @default("not_deployed") // "not_deployed", "deploying", "deployed", "failed"
+  deploymentUrl     String?  // Live URL where the site is deployed
+  deploymentError   String?  @db.Text
+  deployedAt        DateTime?
+  
+  @@index([createdAt])
+}
