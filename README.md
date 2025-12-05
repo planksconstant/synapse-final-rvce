@@ -2,14 +2,14 @@
 
 ## Overview
 
-A sophisticated batch image processing tool that allows users to upload up to nine images simultaneously. Powered by **GPT-4o via OpenRouter**, the platform performs advanced AI-powered analysis to automatically generate:
+A sophisticated image processing tool that allows users to upload an image . Powered by **GPT-4o via OpenRouter**, the platform performs advanced AI-powered analysis to automatically generate:
 
 - Detailed, contextual descriptions of each image
 - Comprehensive, relevant tags for categorization and searchability
 - Secure storage via Minio object storage with presigned URLs
 - Persistent metadata in PostgreSQL for instant retrieval
 
-This tool transforms raw, unstructured visual assets into intelligently categorized, searchable design resources.
+This tool transforms raw visual assets into intelligently categorized design resources.
 
 ## Technology Stack
 
@@ -21,16 +21,6 @@ This tool transforms raw, unstructured visual assets into intelligently categori
 
 ## Getting Started
 
-```bash
-# Install dependencies
-pnpm install
-
-# Start the development environment
-./scripts/run
-
-# Stop the environment
-./scripts/stop
-```
 
 The application will be available at the configured local development URL.
 
@@ -44,4 +34,4 @@ See `.env` file for required configuration, including:
 
 ---
 
-**Built for designers, product managers, and developers who need intelligent image analysis and organization.**
+**Built for designers, product managers, and developers & students who need intelligent image analysis and organization.**
